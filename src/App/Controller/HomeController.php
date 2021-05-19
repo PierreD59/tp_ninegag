@@ -13,7 +13,9 @@ use Symfony\Component\HttpFoundation\Response;
 class HomeController implements PdoAware, RequestAware, TwigAware
 {
     use PdoAwareTrait;
+
     use RequestAwareTrait;
+    
     use TwigAwareTrait;
 
     public function home() {
