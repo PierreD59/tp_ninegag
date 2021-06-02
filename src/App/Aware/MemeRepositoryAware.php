@@ -6,5 +6,5 @@ use App\Repository\MemeRepository;
 
 interface MemeRepositoryAware
 {
-    public function provideProjectRepository(MemeRepository $memeRepository);
+    public function setMemeRepository(MemeRepository $memeRepository);
 }

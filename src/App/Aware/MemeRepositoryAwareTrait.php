@@ -8,7 +8,7 @@ trait MemeRepositoryAwareTrait
 {
     private ?MemeRepository $memeRepository = null;
 
-    public function provideProjectRepository(MemeRepository $memeRepository) {
+    public function setMemeRepository(MemeRepository $memeRepository) {
         $this->memeRepository = $memeRepository;
     }
 

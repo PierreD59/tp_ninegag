@@ -12,16 +12,16 @@ class MemeRepository implements PdoAware {
 
     public function checkLastedMeme() 
     {
-        $query = $this->database->prepare('SELECT * FROM `meme` ORDER BY `id` LIMIT 10');
+        $query = $this->pdo->prepare('SELECT * FROM `meme` ORDER BY `id` LIMIT 10');
         $query->execute();
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        return $query->fetchAll();
     }
 
     public function checkAllMeme() 
     {
         $query = $this->database->prepare('SELECT * FROM `meme`');
         $query->execute();
-        $dataMeme = $query->fetchAll(PDO::FETCH_ASSOC);
+        $dataMeme = $query->fetchAll();
 
         $arrayOfMeme = [];
 
