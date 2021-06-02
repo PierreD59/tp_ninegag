@@ -17,6 +17,6 @@ class ListMemeController implements PdoAware, RequestAware, TwigAware
     use TwigAwareTrait;
 
     public function listmeme() {
-        return new Response('<p>You are in the <strong>contact</strong> !</p>');
+        return new Response($this->twig->render('ListMeme/listMeme.html.twig'));
     }
 }

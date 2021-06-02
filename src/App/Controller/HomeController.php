@@ -17,9 +17,6 @@ class HomeController implements PdoAware, RequestAware, TwigAware
     use TwigAwareTrait;
 
     public function home() {
-//        $this->pdo->prepare('SELECT .....')
-
-        // return new Response('<p>You are in the <strong>home</strong> (' . $this->request->getUri() . ') !</p>');
         return new Response($this->twig->render('Home/home.html.twig'));
     }
 }
