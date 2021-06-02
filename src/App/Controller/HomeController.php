@@ -20,6 +20,12 @@ class HomeController implements PdoAware, RequestAware, TwigAware, MemeRepositor
     use MemeRepositoryAwareTrait;
 
     public function home() {
-        return new Response($this->twig->render('Home/home.html.twig', ["result"=>$this->memeRepository->checkLastedMeme()]));
+        $meme = $this->memeRepository->checkLastedMeme();
+        return new Response($this->twig->render(
+            'Home/home.html.twig', 
+                [
+                    "result"=>$meme
+                ]
+            ));
     }
 }
