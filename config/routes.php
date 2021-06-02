@@ -1,11 +1,11 @@
 <?php
 
-use App\Controller\ContactController;
+use App\Controller\ListMemeController;
 use App\Controller\HomeController;
 
 $routes = [
     '/' => [HomeController::class, 'home'],
-    '/contact' => [ContactController::class, 'contact'],
+    '/liste-des-meme' => [ListMemeController::class, 'listmeme'],
 ];
 
 return $routes;
