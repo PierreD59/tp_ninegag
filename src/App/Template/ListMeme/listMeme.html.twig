@@ -1,5 +1,24 @@
 {% extends "layout.html.twig" %}
 {% block title %}Liste des Meme{% endblock %}
 {% block content %}
-    toto
+    {% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nom du Meme</th>
+                <th scope="col">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for allMeme in result %}
+        <tr>
+            <th scope="row">{{allMeme.id}}</th>
+            <td>{{allMeme.name}}</td>
+            <td>{{allMeme.illustration_image_url}}</td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
 {% endblock %}

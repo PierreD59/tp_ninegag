@@ -1,11 +1,13 @@
 <?php
 
+namespace App\Entity;
+
+
 class Meme {
 
     private ?int $id = null;
     private ?String $name = null;
     private ?String $image = null;
-
 
     // GETTERS
 
@@ -48,26 +50,24 @@ class Meme {
         return $this;
     }
 
-    // HYDRATE & CONSTRUCTOR
+   // hydrate 
 
-    public function __construct($id, $name, $image) {
-            $this->setId = $id;
-            $this->setName = $name;
-            $this->setImage = $image;
-    }
-
-    public function hydrate (array $data): void
+    static public function hydrate (array $data): Meme
     {
-        if (isset($data['id'])) {
-            $this->id = $data['id'];
+        $meme = new Meme();
+
+        $fieldsMap = [
+            'id' => 'id',
+            'name' => 'name',
+            'illustration_image_url' => 'illustration_image_url',
+        ];
+
+        foreach ($fieldsMap as $propertyName => $fieldName) {
+            if (isset($data[$fieldName])) {
+                $meme->{$propertyName} = $data[$fieldName];
+            }
         }
 
-        if (isset($data['name'])) {
-            $this->name = $data['name'];
-        }
-
-        if (isset($data['illustration_image_url'])) {
-            $this->image = $data['illustration_image_url'];
-        }
+        return $meme;
     }
 }

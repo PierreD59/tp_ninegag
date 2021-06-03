@@ -14,21 +14,27 @@ class MemeRepository implements PdoAware {
     {
         $query = $this->pdo->prepare('SELECT * FROM `meme` ORDER BY `id` desc LIMIT 10');
         $query->execute();
-        return $query->fetchAll();
+
+        $arrayOfLastedMeme = [];
+
+        while ($dataMeme = $query->fetch()){
+            $arrayOfLastedMeme[] = Meme::hydrate($dataMeme);
+        }
+        
+        return $arrayOfLastedMeme;
     }
 
     public function checkAllMeme() 
     {
-        $query = $this->database->prepare('SELECT * FROM `meme`');
+        $query = $this->pdo->prepare('SELECT * FROM `meme`');
         $query->execute();
-        $dataMeme = $query->fetchAll();
 
         $arrayOfMeme = [];
 
-        foreach($dataMeme as $data)
-        {
-            $arrayOfMeme[] = new Meme($data);
+        while ($dataMeme = $query->fetch()){
+            $arrayOfMeme[] = Meme::hydrate($dataMeme);
         }
+        
         return $arrayOfMeme;
     }
     
