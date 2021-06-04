@@ -1,11 +1,12 @@
 <?php
 
-use App\Controller\ListMemeController;
-use App\Controller\HomeController;
+use App\Controller\MemeController;
 
 $routes = [
-    '/' => [HomeController::class, 'home'],
-    '/liste-des-meme' => [ListMemeController::class, 'listmeme'],
+    '/' => [MemeController::class, 'home'],
+    '/liste-des-meme' => [MemeController::class, 'listmeme'],
+    '/partager-un-meme' => [MemeController::class, 'new'],
+
 ];
 
 return $routes;

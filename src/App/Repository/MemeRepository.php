@@ -37,5 +37,14 @@ class MemeRepository implements PdoAware {
         
         return $arrayOfMeme;
     }
+
+    public function addNewMeme($name, $image)
+    {
+        $query = $this->pdo->prepare('INSERT INTO `meme` (`name`, `illustration_image_url`) VALUES (:name, :illustration_image_url)');
+        $query->execute([
+            "name"=> $name,
+            "illustration_image_url" => $image,
+        ]);
+    }
     
 }
