@@ -19,7 +19,8 @@ class MemeController implements PdoAware, RequestAware, TwigAware, MemeRepositor
     use TwigAwareTrait;
     use MemeRepositoryAwareTrait;
 
-    public function home() {
+    public function home() 
+    {
         $meme = $this->memeRepository->checkLastedMeme();
         return new Response($this->twig->render(
             'Home/home.html.twig', 
@@ -29,7 +30,8 @@ class MemeController implements PdoAware, RequestAware, TwigAware, MemeRepositor
             ));
     }
 
-    public function listmeme() {
+    public function listmeme() 
+    {
         $allMeme = $this->memeRepository->checkAllMeme();
         return new Response($this->twig->render(
             'ListMeme/listMeme.html.twig',
@@ -39,9 +41,9 @@ class MemeController implements PdoAware, RequestAware, TwigAware, MemeRepositor
             ));
     }
 
-    public function new() {
+    public function new() 
+    {
         if ($this->request->request->has('addNewMeme'))
-        var_dump($this->request->request->has('addNewMeme'));
         {
             $name = $this->request->request->get('name');
             $image = $this->request->request->get('image');
@@ -50,6 +52,16 @@ class MemeController implements PdoAware, RequestAware, TwigAware, MemeRepositor
 
         return new Response($this->twig->render(
             'AddMeme/addMeme.html.twig'
-            ));
+        ));
+    }
+
+    public function memeDetail()
+    {
+        $id = $this->request->query->get('id');
+        $meme = $this->memeRepository->checkMemeById($id);
+
+        return new Response($this->twig->render(
+            'Detail/detailMeme.html.twig', ['meme' => $meme], 
+        ));
     }
 }

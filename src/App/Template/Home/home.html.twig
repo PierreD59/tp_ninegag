@@ -4,11 +4,13 @@
     {% block body %}
         {% for meme in result %}
             <div class="card m-5" style="width: 18rem;">
-                <img class="card-img-top" src="{{meme.illustration_image_url}}" alt="Card image cap">
-                <hr>
-                <div class="card-body">
-                    <h5 class="card-title">{{meme.name}}</h5>
-                </div>
+                <a href="/page-detail?id={{ meme.id }}">
+                    <img class="card-img-top" src="{{meme.illustration_image_url}}" alt="Card image cap">
+                    <hr>
+                    <div class="card-body">
+                        <h5 class="card-title">{{meme.name}}</h5>
+                    </div>
+                </a>
             </div>
         {% endfor %}
     {% endblock %}

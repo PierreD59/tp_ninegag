@@ -24,6 +24,16 @@ class MemeRepository implements PdoAware {
         return $arrayOfLastedMeme;
     }
 
+    public function checkMemeById(int $id) 
+    {
+        $query = $this->pdo->prepare('SELECT * FROM `meme` WHERE id = :id');
+        $query->execute(["id" => $id ]);
+
+        $meme = $query->fetch();
+        
+        return $meme;
+    }
+
     public function checkAllMeme() 
     {
         $query = $this->pdo->prepare('SELECT * FROM `meme`');
