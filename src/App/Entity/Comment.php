@@ -5,8 +5,8 @@ namespace App\Entity;
 class Comment {
 
         private ?int $id = null;
-        private ?String $comment = null;
-        private ?Datetime $createdAt = null;
+        private ?string $name = null;
+        private ?string $comment = null;
 
    // HYDRATE 
 
@@ -16,8 +16,8 @@ class Comment {
 
         $fieldsMap = [
             'id' => 'id',
+            'name' => 'name',
             'comment' => 'comment',
-            'createdAt' => 'createdAt',
         ];
 
         foreach ($fieldsMap as $propertyName => $fieldName) {
@@ -35,25 +35,18 @@ class Comment {
         {
                 return $this->id;
         }
-        
+
+        public function getName(): ?string
+        {
+                return $this->name;
+        }
+
         public function getComment(): ?string
         {
                 return $this->comment;
         }
 
-        public function getCreatedAt(): ?DateTime
-        {
-                return $this->createdAt;
-        }
-
-
     // SETTERS
-        public function setCreatedAt(?Datetime $createdAt): self
-        {
-                $this->createdAt = $createdAt;
-
-                return $this;
-        }
 
         public function setComment($comment): self
         {
@@ -62,5 +55,10 @@ class Comment {
                 return $this;
         }
 
+        public function setName($name): self
+        {
+                $this->name = $name;
 
+                return $this;
+        }
 }
