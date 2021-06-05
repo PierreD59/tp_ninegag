@@ -9,6 +9,27 @@ class Meme {
     private ?String $name = null;
     private ?String $image = null;
 
+   // hydrate 
+
+    static public function hydrate (array $data): Meme
+    {
+        $meme = new Meme();
+
+        $fieldsMap = [
+            'id' => 'id',
+            'name' => 'name',
+            'illustration_image_url' => 'illustration_image_url',
+        ];
+
+        foreach ($fieldsMap as $propertyName => $fieldName) {
+            if (isset($data[$fieldName])) {
+                $meme->{$propertyName} = $data[$fieldName];
+            }
+        }
+
+        return $meme;
+    }
+
     // GETTERS
 
     public function getId()
@@ -48,26 +69,5 @@ class Meme {
         $this->image = $image;
 
         return $this;
-    }
-
-   // hydrate 
-
-    static public function hydrate (array $data): Meme
-    {
-        $meme = new Meme();
-
-        $fieldsMap = [
-            'id' => 'id',
-            'name' => 'name',
-            'illustration_image_url' => 'illustration_image_url',
-        ];
-
-        foreach ($fieldsMap as $propertyName => $fieldName) {
-            if (isset($data[$fieldName])) {
-                $meme->{$propertyName} = $data[$fieldName];
-            }
-        }
-
-        return $meme;
     }
 }
