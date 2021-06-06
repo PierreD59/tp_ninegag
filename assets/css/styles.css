@@ -1,0 +1,20 @@
+body {
+  background: #22313f;
+}
+body .memeBlock {
+  display: flex;
+  justify-content: center;
+  padding: 25px;
+}
+body .memeBlock .toto {
+  background: #ececec;
+  padding: 15px;
+  height: 100%;
+  border: 1px solid #e1e1e1;
+}
+body .memeBlock .toto a {
+  text-decoration: none;
+  color: #22313f;
+}
+
+/*# sourceMappingURL=styles.css.map */
