@@ -1,0 +1,78 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+
+.card-form{
+  width: 500px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+  margin: auto;
+  
+  .form-title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #ececec;
+    border-radius: 10px 10px 0 0;
+    p {
+        color: #22313f;
+    }
+  }
+  
+  .form-body{
+    padding: 10px;
+    
+    .row{
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      
+      input[type="text"]{
+        appearance: none;
+        width: 100%;
+        margin: 0 15px;
+        height: 35px;
+        padding: 5px 15px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        background: #ececec;
+        color: #22313f;
+        font-size: 14px;
+      }
+    }
+  }
+  
+  .rule{
+    height: 2px;
+    background: #22313f;
+    margin: 0px 35px;
+  }
+  
+  .form-footer{
+    margin: 0 25px 15px 25px;
+    padding: 15px 10px;
+    
+    .buttonShare {
+      display: inline-block;
+      height: auto;
+      line-height: 40px;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 15px;
+      background: #22313f;
+      margin-right: 10px;
+      font-size: 14px;
+      text-decoration: none;
+      color: #ececec;
+    }
+    
+    span {
+      margin-left: 8px;
+    }
+  }
+  
+}

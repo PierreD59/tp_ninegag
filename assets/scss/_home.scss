@@ -10,9 +10,17 @@ body {
             padding: 15px;
             height: 100%;
             border: 1px solid #e1e1e1;
+            box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+
             a {
                 text-decoration: none;
                 color: #22313f;
+
+                hr {
+                    background: #22313f;
+                    height: 2px;
+                    opacity: 1;
+                }
             }
         }
     }
