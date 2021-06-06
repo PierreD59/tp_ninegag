@@ -46,7 +46,7 @@ class MemeController implements PdoAware, RequestAware, TwigAware, MemeRepositor
 
     public function newMeme() 
     {
-        if ($this->request->request->has('addNewMeme'))
+        if ($this->request->request->has('addNewMeme') && !empty($this->request->request->get('name') && !empty($this->request->request->get('image'))))
         {
             $name = $this->request->request->get('name');
             $image = $this->request->request->get('image');
@@ -63,7 +63,7 @@ class MemeController implements PdoAware, RequestAware, TwigAware, MemeRepositor
         $meme_id = $this->request->query->get('id');
         $meme = $this->memeRepository->checkMemeById($meme_id);
 
-        if ($this->request->request->has('addComment'))
+        if ($this->request->request->has('addComment') && !empty($this->request->request->get('pseudo') && !empty($this->request->request->get('comment'))))
         {
             $meme_id = $this->request->query->get('id');
             $name = $this->request->request->get('pseudo');
